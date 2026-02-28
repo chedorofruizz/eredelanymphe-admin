@@ -26,11 +26,12 @@
       box-sizing: border-box;
     }
 
-    h1 {
+    /* Brand logo (replaces white text) */
+    .brand img {
+      width: 320px;
+      max-width: 85vw;
+      height: auto;
       margin-bottom: 40px;
-      font-weight: normal;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
     }
 
     /* Mobile: vertical */
@@ -84,28 +85,27 @@
 <body>
   <div class="wrapper">
 
-    <h1>Ère de la Nymphe</h1>
+    <!-- LOGO instead of white text -->
+    <div class="brand">
+      <img src="/landing.png" alt="Ère de la Nymphe">
+    </div>
 
-<div class="logos">
-  <a href="https://etsy.com/yourshop" target="_blank" rel="noopener">
-    <img src="/assets/logos/etsy.png" alt="Etsy">
-  </a>
+    <div class="logos">
+      <a href="https://etsy.com/yourshop" target="_blank" rel="noopener">
+        <img src="/assets/logos/etsy.png" alt="Etsy">
+      </a>
 
-  <a href="https://amazon.com/yourshop" target="_blank" rel="noopener">
-    <img src="/assets/logos/amazon.png" alt="Amazon">
-  </a>
+      <a href="https://amazon.com/yourshop" target="_blank" rel="noopener">
+        <img src="/assets/logos/amazon.png" alt="Amazon">
+      </a>
 
-  <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">
-    <img src="/assets/logos/instagram.png" alt="Instagram">
-  </a>
-</div>
+      <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">
+        <img src="/assets/logos/instagram.png" alt="Instagram">
+      </a>
+    </div>
 
     <a class="back" href="/">Retour</a>
 
   </div>
 </body>
 </html>
-
-
-
-
