@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Liens – Ère de la Nymphe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .wrapper {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+
+    .brand img {
+      width: 220px;
+      max-width: 80vw;
+      height: auto;
+      margin-bottom: 40px;
+    }
+
+    /* Default mobile layout (vertical) */
+    .logos {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    /* Desktop layout */
+    @media (min-width: 768px) {
+      .logos {
+        flex-direction: row;
+        gap: 60px;
+      }
+    }
+
+    .logos a {
+      display: inline-block;
+    }
+
+    .logos img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .logos a:hover img {
+      transform: scale(1.08);
+      opacity: 0.85;
+    }
+
+    .back {
+      margin-top: 50px;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #d6b36a;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .back:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <div class="brand">
+      <img src="assets/brand/logo.png" alt="Ère de la Nymphe">
+    </div>
+
+    <div class="logos">
+      <a href="https://etsy.com/yourshop" target="_blank" rel="noopener">
+        <img src="assets/logos/etsy.png" alt="Etsy">
+      </a>
+
+      <a href="https://amazon.com/yourshop" target="_blank" rel="noopener">
+        <img src="assets/logos/amazon.png" alt="Amazon">
+      </a>
+
+      <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener">
+        <img src="assets/logos/instagram.png" alt="Instagram">
+      </a>
+    </div>
+
+    <a class="back" href="/">Retour</a>
+
+  </div>
+</body>
+</html>
