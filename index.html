@@ -6,85 +6,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    :root{
-      --gold:#d6b36a;
-      --goldSoft: rgba(214,179,106,.65);
-      --bg0:#050507;
-      --bg1:#0b0613;
-    }
-
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
-      background: linear-gradient(180deg, var(--bg1), var(--bg0));
+      background: #000;
       overflow: hidden;
       font-family: Arial, sans-serif;
     }
 
-    /* Clickable full page */
+    /* Full-page clickable area */
     a.heroLink {
       display: block;
-      height: 100%;
       position: relative;
+      height: 100%;
       text-decoration: none;
       color: white;
     }
 
-    /* Background image */
+    /* Centered fairy image, no effects */
     .hero {
       position: absolute;
       inset: 0;
-      background: 
-        radial-gradient(circle at 50% 20%, rgba(214,179,106,.18), transparent 55%),
-        url("landing.png") center center / contain no-repeat;
+      background: url("landing.png") center center / contain no-repeat;
     }
 
-    /* Subtle dark vignette */
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, transparent 60%, rgba(0,0,0,.85));
-    }
-
-    /* French hint */
+    /* Simple French hint */
     .hint {
       position: absolute;
       bottom: 40px;
       width: 100%;
       text-align: center;
       font-size: 14px;
-      letter-spacing: .25em;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0.75;
-      transition: opacity .3s ease, transform .3s ease;
+      color: #d6b36a;
+      opacity: 0.8;
     }
-
-    a.heroLink:hover .hint {
-      opacity: 1;
-      transform: translateY(-4px);
-    }
-
-    /* Soft golden glow animation */
-    @keyframes glow {
-      0% { opacity: .6; }
-      50% { opacity: 1; }
-      100% { opacity: .6; }
-    }
-
-    .hint {
-      animation: glow 3s ease-in-out infinite;
-    }
-
   </style>
 </head>
 
 <body>
   <a class="heroLink" href="/liens.html">
     <div class="hero"></div>
-    <div class="overlay"></div>
-    <div class="hint">Découvrir</div>
+    <div class="hint">Découvre</div>
   </a>
 </body>
 </html>
