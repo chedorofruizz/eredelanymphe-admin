@@ -26,12 +26,26 @@
       box-sizing: border-box;
     }
 
-    /* Banner logo */
+    /* Banner */
     .brand img {
       width: 100%;
-      max-width: 600px;   /* controls banner width */
+      max-width: 600px;
       height: auto;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
+    }
+
+    /* Shopify section */
+    .shopify {
+      margin-bottom: 35px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    #product-component-1776541872591 {
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
     /* Mobile: vertical */
@@ -58,6 +72,7 @@
       width: 70px;
       height: 70px;
       object-fit: contain;
+      background: transparent;
       transition: transform 0.2s ease, opacity 0.2s ease;
     }
 
@@ -85,29 +100,102 @@
 <body>
   <div class="wrapper">
 
-    <!-- BANNER -->
+    <!-- Banner -->
     <div class="brand">
-      <img src="/assets/brand/logo.png" alt="Ère de la Nymphe">
+      <img src="/assets/brand/logo.png?v=2" alt="Ère de la Nymphe">
     </div>
 
+    <!-- Shopify Buy Button -->
+    <div class="shopify">
+      <div id="product-component-1776541872591"></div>
+    </div>
+
+    <!-- Socials -->
     <div class="logos">
-      <a href="https://etsy.com/yourshop" target="_blank" rel="noopener">
-        <img src="/assets/logos/etsy.png" alt="Etsy">
+
+      <a href="https://www.youtube.com/@eredelanymphe" target="_blank" rel="noopener">
+        <img src="/assets/logos/youtube.png" alt="YouTube">
       </a>
 
-      <a href="https://amazon.com/yourshop" target="_blank" rel="noopener">
-        <img src="/assets/logos/amazon.png" alt="Amazon">
+      <a href="https://www.facebook.com/profile.php?id=61574511766758" target="_blank" rel="noopener">
+        <img src="/assets/logos/facebook.png" alt="Facebook">
       </a>
 
       <a href="https://instagram.com/eredelanymphe" target="_blank" rel="noopener">
         <img src="/assets/logos/instagram2.png" alt="Instagram">
       </a>
+
     </div>
 
     <a class="back" href="/">Retour</a>
 
   </div>
+
+  <!-- Shopify Script -->
+  <script type="text/javascript">
+  (function () {
+    var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
+    if (window.ShopifyBuy) {
+      if (window.ShopifyBuy.UI) {
+        ShopifyBuyInit();
+      } else {
+        loadScript();
+      }
+    } else {
+      loadScript();
+    }
+
+    function loadScript() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = scriptURL;
+      document.head.appendChild(script);
+      script.onload = ShopifyBuyInit;
+    }
+
+    function ShopifyBuyInit() {
+      var client = ShopifyBuy.buildClient({
+        domain: 'ymeypk-tf.myshopify.com',
+        storefrontAccessToken: '11f54ff417f7a5f71159935a19331f97',
+      });
+
+      ShopifyBuy.UI.onReady(client).then(function (ui) {
+        ui.createComponent('product', {
+          id: '9028360241290',
+          node: document.getElementById('product-component-1776541872591'),
+          options: {
+            product: {
+              styles: {
+                product: {
+                  "@media (min-width: 601px)": {
+                    "max-width": "100%",
+                    "margin": "0"
+                  }
+                },
+                button: {
+                  "background-color": "#d6b36a",
+                  "color": "#000000",
+                  "font-weight": "bold",
+                  ":hover": {
+                    "background-color": "#c1a15f"
+                  }
+                }
+              },
+              contents: {
+                img: false,
+                title: false,
+                price: false
+              },
+              text: {
+                button: "Acheter maintenant"
+              }
+            }
+          }
+        });
+      });
+    }
+  })();
+  </script>
+
 </body>
 </html>
-
-
