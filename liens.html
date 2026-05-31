@@ -9,14 +9,14 @@
     html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
+      min-height: 100%;
       background: #000;
       color: #fff;
       font-family: Arial, sans-serif;
     }
 
     .wrapper {
-      min-height: 100%;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -30,27 +30,49 @@
       width: 100%;
       max-width: 600px;
       height: auto;
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       display: block;
     }
 
-    .shopify {
-      margin-bottom: 35px;
+    /* Shopify products */
+    .shopify-products {
+      width: 100%;
+      max-width: 1300px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 45px;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      margin-bottom: 45px;
     }
 
-    #product-component-1776627106384,
-    #product-component-1780247469339 {
+    .shopify-product {
       width: 100%;
+      max-width: 620px;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
     }
 
+    @media (min-width: 1000px) {
+      .shopify-products {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 50px;
+      }
+
+      .shopify-product {
+        width: 50%;
+        max-width: 620px;
+      }
+    }
+
+    #product-component-1780248121676,
+    #product-component-1780248277750 {
+      width: 100%;
+    }
+
+    /* Social icons */
     .logos {
       display: flex;
       flex-direction: column;
@@ -106,11 +128,18 @@
       <img src="/assets/brand/logo.png?v=2" alt="Ère de la Nymphe">
     </div>
 
-    <div class="shopify">
-      <div id="product-component-1776627106384"></div>
-      <div id="product-component-1780247469339"></div>
+    <!-- Detailed Shopify Products -->
+    <div class="shopify-products">
+      <div class="shopify-product">
+        <div id="product-component-1780248121676"></div>
+      </div>
+
+      <div class="shopify-product">
+        <div id="product-component-1780248277750"></div>
+      </div>
     </div>
 
+    <!-- Socials -->
     <div class="logos">
       <a href="https://www.youtube.com/@eredelanymphe" target="_blank" rel="noopener">
         <img src="/assets/logos/youtube.png?v=2" alt="YouTube">
@@ -173,31 +202,46 @@
       };
     }
 
-    function getProductOptions() {
+    function detailedProductOptions() {
       return {
         "product": {
           "styles": {
             "product": {
               "@media (min-width: 601px)": {
-                "max-width": "calc(25% - 20px)",
-                "margin-left": "20px",
-                "margin-bottom": "20px"
-              }
+                "max-width": "100%",
+                "margin-left": "0",
+                "margin-bottom": "0"
+              },
+              "text-align": "left"
             },
             "title": {
+              "font-size": "24px",
               "color": "#d6b36a"
             },
             "button": lockedGoldButtonStyles(),
             "price": {
+              "font-size": "18px",
               "color": "#ffffff"
             },
             "compareAt": {
+              "font-size": "15.3px",
               "color": "#ffffff"
             },
             "unitPrice": {
+              "font-size": "15.3px",
+              "color": "#ffffff"
+            },
+            "description": {
               "color": "#ffffff"
             }
           },
+          "layout": "horizontal",
+          "contents": {
+            "img": false,
+            "imgWithCarousel": true,
+            "description": true
+          },
+          "width": "100%",
           "text": {
             "button": "Ajouter au panier"
           },
@@ -209,7 +253,7 @@
           "styles": {
             "products": {
               "@media (min-width: 601px)": {
-                "margin-left": "-20px"
+                "margin-left": "0"
               }
             }
           }
@@ -252,6 +296,12 @@
               "font-family": "Helvetica Neue, sans-serif",
               "font-weight": "normal",
               "font-size": "15.3px",
+              "color": "#4c4c4c"
+            },
+            "description": {
+              "font-family": "Helvetica Neue, sans-serif",
+              "font-weight": "normal",
+              "font-size": "14px",
               "color": "#4c4c4c"
             }
           },
@@ -405,17 +455,17 @@
       ShopifyBuy.UI.onReady(client).then(function (ui) {
 
         ui.createComponent('product', {
-          id: '9028360241290',
-          node: document.getElementById('product-component-1776627106384'),
+          id: '9078272426122',
+          node: document.getElementById('product-component-1780248121676'),
           moneyFormat: '%24%7B%7Bamount%7D%7D',
-          options: getProductOptions()
+          options: detailedProductOptions()
         });
 
         ui.createComponent('product', {
-          id: '9078272426122',
-          node: document.getElementById('product-component-1780247469339'),
+          id: '9028360241290',
+          node: document.getElementById('product-component-1780248277750'),
           moneyFormat: '%24%7B%7Bamount%7D%7D',
-          options: getProductOptions()
+          options: detailedProductOptions()
         });
 
       });
