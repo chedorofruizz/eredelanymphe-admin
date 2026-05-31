@@ -40,7 +40,6 @@
       cursor: pointer;
     }
 
-    /* Shopify products: stacked on mobile AND desktop */
     .shopify-products {
       width: 100%;
       max-width: 900px;
@@ -60,12 +59,11 @@
       align-items: flex-start;
     }
 
-    #product-component-1780248277750,
-    #product-component-1780248121676 {
+    #product-component-1780248121676,
+    #product-component-1780248277750 {
       width: 100%;
     }
 
-    /* Social icons */
     .logos {
       display: flex;
       flex-direction: column;
@@ -126,14 +124,14 @@
     <!-- Detailed Shopify Products -->
     <div class="shopify-products">
 
-      <!-- Product 1: 9028360241290 -->
-      <div class="shopify-product">
-        <div id="product-component-1780248277750"></div>
-      </div>
-
-      <!-- Product 2: 9078272426122 -->
+      <!-- Product 1: Version numérique -->
       <div class="shopify-product">
         <div id="product-component-1780248121676"></div>
+      </div>
+
+      <!-- Product 2: Version papier -->
+      <div class="shopify-product">
+        <div id="product-component-1780248277750"></div>
       </div>
 
     </div>
@@ -466,15 +464,15 @@
       ShopifyBuy.UI.onReady(client).then(function (ui) {
 
         ui.createComponent('product', {
-          id: '9028360241290',
-          node: document.getElementById('product-component-1780248277750'),
+          id: '9078272426122',
+          node: document.getElementById('product-component-1780248121676'),
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: detailedProductOptions()
         });
 
         ui.createComponent('product', {
-          id: '9078272426122',
-          node: document.getElementById('product-component-1780248121676'),
+          id: '9028360241290',
+          node: document.getElementById('product-component-1780248277750'),
           moneyFormat: '%24%7B%7Bamount%7D%7D',
           options: detailedProductOptions()
         });
